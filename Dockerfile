@@ -14,10 +14,13 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN \
   apt-get update && \
   apt-get install -y php5 php5-fpm && \
-  apt-get clean
+  apt-get clean && \
+  mkdir /var/log/php-fpm
 
 ADD php-fpm.conf /etc/php5/fpm/php-fpm.conf
 ADD www.conf /etc/php5/fpm/pool.d/www.conf
 
 # Define default command.
 CMD ["php5-fpm"]
+
+EXPOSE 9000
