@@ -20,6 +20,8 @@ RUN \
 ADD php-fpm.conf /etc/php5/fpm/php-fpm.conf
 ADD www.conf /etc/php5/fpm/pool.d/www.conf
 
+VOLUME ["/var/log/php-fpm"]
+
 # Define default command.
 CMD ["php5-fpm"]
 
